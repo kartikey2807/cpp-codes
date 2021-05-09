@@ -1,0 +1,68 @@
+// if you get a wrong answer but you are convinced
+// that your logic is correct do :- 1) read the
+// entire code and try to find if something needs
+// to be added 2) start making test cases that you
+// think can possibly give WA. Double cannot be used
+// for comparisons use div and mod instead. 
+#include <bits/stdc++.h>
+#include <set>
+#include <map>
+#include <stack>
+#include <queue>
+#include <vector>
+#include <string>
+using namespace std;
+typedef double  dbl;
+typedef long long int lld;
+#define PI 3.14159265358979323
+#define foi(i,n) for(lld i = 0; i < n; i+=1)
+#define fod(i,n) for(lld i=n-1; i >=0; i-=1)
+#define MAX std::numeric_limits<lld>::max()
+#define MIN std::numeric_limits<lld>::min()
+#define FastIO  ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+#define auth set <lld> :: iterator
+#define pb push_back
+int main ()
+{
+      #ifndef ONLINE_JUDGE
+      freopen("inputf.in",  "r",  stdin);
+      freopen("outputf.in", "w", stdout);
+      #endif
+      FastIO
+      lld n, k, a, b, c, d;
+      cin >> n >> k >> a >> b >> c >> d;
+      if (n == 4){cout <<"-1";return 0;}
+      if (k >= n+1){
+      	lld x;
+      	for(lld i = 1; i <= n; i += 1){
+      		if (i != a && i != b && i != c && i != d){
+      			x = i;
+      			break;
+      		}
+      	}
+      	vector <lld> ans (n+1);
+      	ans[1] = a;
+      	ans[2] = c;
+      	ans[3] = x;
+      	ans[4] = d;
+      	ans[n] = b;
+      	lld j = 5;
+      	for(lld i = 1; i <= n; i += 1){
+      		if (i != a && i != c && i != x && i != d && i!=b){
+      			ans[j++] = i;
+      		}
+      	}
+      	for(lld i = 1; i <= n; i += 1){
+      		cout << ans[i] << " ";
+      	}
+      	cout << "\n";
+      	cout << ans[2] << " " << ans[1] << " " << ans[3] << " ";
+      	for(lld i = n; i >= 4; i -= 1){
+      		cout << ans[i] << " ";
+      	}
+      }
+      else{
+      	cout << "-1";
+      }
+      return 0;
+}
